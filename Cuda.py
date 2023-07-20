@@ -19,7 +19,6 @@ def _cuda_func(mat: np.ndarray, out_mat: np.ndarray):
             else: out_mat[i, j] = mat[i, j]
 
 def cuda_func(mat: np.ndarray, out_mat: np.ndarray):
-    numba.cuda.current_context()
     device_mat = numba.cuda.to_device(mat)
     device_out_mat = numba.cuda.device_array_like(out_mat)
 
